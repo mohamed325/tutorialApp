@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
   def show
   	@user = User.find(params[:id])
+    @customers = Customer.all
     redirect_to root_url and return unless @user.activated?
 
   end
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
   end
   # confirm an admin user
   def admin_user
-    redirect_to(root_url) unless current_user.amdin?
+    redirect_to(root_url) unless current_user.admin?
   end
 
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
 
-  root "static_pages#home"
+  root "customers#index"
   
   
 
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
 
+  get '/approve', to: 'customers#approval'
+
   get '/login', to: 'sessions#new'
 
   post '/login', to: 'sessions#create'
@@ -27,6 +29,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users
+
+  resources :customers
+
+
+
+  get '/newcustomer', to: 'customers#new'
 
   resources :account_activations, only:[:edit]
   

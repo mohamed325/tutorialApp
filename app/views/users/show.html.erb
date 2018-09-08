@@ -7,6 +7,28 @@
 	          <%= @user.name %>
             </h1>
         </section>
+            <% if @user.admin? %>
+                <ol>
+                  <% @customers.each do |a| %>
+                    <li> <%= a.name %> 
+                    	<span> 
+                      <% if !a.approved? %> 
+                        <%= link_to("Approve", {:action => 'approval', :controller=>"customers", :id => a.id}) %>
+                       <% end %>
+                         <%= link_to 'delete', a, method: :delete, data: {confirm: "You sure?"} %>
+                        
+                      </span>
+
+                    </li>
+
+                  <% end %>
+                </ol>
+
+
+             <% end %>
+        
+          
+       
     </aside>
 </div>
 

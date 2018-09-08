@@ -1,0 +1,8 @@
+<h1>Waa sida loo kala horeeyo</h1>
+<ol>
+   <% @customers.each do |a| %>
+    <li> <%= a.name %> </li>
+   <% end %>
+</ol>
+<%= link_to "Register Your Name!", newcustomer_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Isdiiwangali!", newcustomer_path, class: "btn btn-lg btn-primary" %>
